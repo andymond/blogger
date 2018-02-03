@@ -8,7 +8,7 @@ describe "User navigates to article show page" do
       visit articles_path
       click_link article.title
 
-      expect(current_path).to be("/articles/1")
+      expect(current_path).to eq("/articles/#{article.id}")
       expect(page).to have_content(article.title)
       expect(page).to have_content(article.body)
     end
