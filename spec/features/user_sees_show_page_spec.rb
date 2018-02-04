@@ -34,6 +34,7 @@ describe "User navigates to article show page" do
       expect(page).to have_content("Post a Comment")
       expect(page).to have_content("ME!")
       expect(page).to have_content("Sounds like a bad idea!")
+      expect(page).to have_content("Comments (1)")
     end
   end
 end
