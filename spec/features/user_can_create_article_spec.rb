@@ -3,7 +3,22 @@ require "rails_helper"
 describe "User navigates to create article" do
   describe "User navigate to create article from index" do
     it "displays form to create new article" do
+      visit new_author_path
+      fill_in "Username", with: "Larry"
+      fill_in "Email", with: "Larry@example.com"
+      fill_in "Password", with: "password"
+      fill_in "Password confirmation", with: "password"
+      click_on "Create Author"
+
+      visit login_path
+      fill_in "Email", with: "Larry@example.com"
+      fill_in "Password", with: "password"
+      click_on "Login"
+
+      expect(page).to have_content("Logged in successfully.")
+
       visit articles_path
+
       click_link "Create New Article"
 
       expect(current_path).to eq(new_article_path)
