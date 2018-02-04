@@ -1,8 +1,8 @@
 require "rails_helper"
 
-describe Tag type: :model do
+describe Tag, type: :model do
   describe "Relationships" do
     it {should have_many :taggings}
-    it {should have_many :articles.through(:taggings)}
+    it {should have_many(:articles).through(:taggings)}
   end
 end
