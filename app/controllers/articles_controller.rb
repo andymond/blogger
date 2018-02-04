@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :destroy, :edit, :update]
+  before_action :require_login, except: [:show, :index]
 
   def index
     @articles = Article.all
